@@ -31,7 +31,14 @@ namespace Lesson4
         {
 
         }
-         
+        public string FullName(string title) => title + " " + name + " " + surname;
+
+
+        public string FullName2(string title)
+        {
+            return title + " " + name + " " + surname;
+        }
+
 
     }
 }

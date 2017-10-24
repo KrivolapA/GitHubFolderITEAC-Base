@@ -17,15 +17,57 @@ namespace Lesson4
         public Course(string Name)
         {
             this.Name = Name;
+            studentRecords = new StudentCourseEnrollment[maxStudentsPerCourse];
         }
         public Course(string Name, Student[] students) : this(Name)
         {           
             studentRecords = new StudentCourseEnrollment[maxStudentsPerCourse];
-            for(int i = 0; i< students.Length; i++)
-            {
-                studentRecords[i] = new StudentCourseEnrollment(students[i], this);
+            try {
+                for (int i = 0; i < students.Length; i++)
+                {
+                    AddStudent(students[i]);
+                    //studentRecords[i] = new StudentCourseEnrollment(students[i], this);
+                }
+                StudentsAtCourse = students.Length;
             }
-            StudentsAtCourse = students.Length;
+            catch(CoursesException e)
+            {
+                
+            }
+            
+           
+        }
+        public bool AddStudent(Student st)
+        {
+            if (StudentsAtCourse < maxStudentsPerCourse)
+            {
+                studentRecords[StudentsAtCourse++] = new StudentCourseEnrollment(st, this);
+                totalStudents++;
+                return true;
+            }
+            else
+                throw new CoursesException() {currentNumberOfStudents = totalStudents };
+            
+        }
+        public int AddStudents(Student[] students)
+        {
+            int numProcessed = 0;
+            foreach(Student st in students)
+            {
+                if (AddStudent(st))
+                    numProcessed++;
+            }
+            return numProcessed;
+        }
+        public int this[String FullName]
+        {
+            get
+            {
+                foreach (StudentCourseEnrollment se in studentRecords)
+                    if (se.student.FullName("") == FullName)
+                        return se.points;
+                return -1;
+            }
         }
     }
 }

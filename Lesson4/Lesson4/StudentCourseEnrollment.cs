@@ -8,9 +8,9 @@ namespace Lesson4
 {
     class StudentCourseEnrollment
     {
-        Student student;
+        public Student student { get; set; }
         Course course;
-        int points;
+        public int points { get; set; }
         public StudentCourseEnrollment(Student student, Course course)
         {
             this.student = student;

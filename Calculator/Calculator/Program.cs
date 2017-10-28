@@ -19,8 +19,8 @@ namespace Calculator
             Console.WriteLine(myCalculator.Value);
             CalcUI c = new CalcUI(new MemCalcWithPow());
             c.PrintMenu();
-            BaseCalc calc = new BaseCalc();
-            calc.SetValue(5.5);
+            BaseCalc calc = new BaseCalc(5.5);
+            //calc.SetValue(5.5);
             calc.Mod(2);
             ModClass.Mod(calc, 2);
             double result = 3+calc+4+5;

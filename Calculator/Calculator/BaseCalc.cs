@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
+    class SomeBase
+    {
+        public SomeBase()
+        {
+            Console.WriteLine("SomeBase");
+        }
+    }
     
-    class BaseCalc
+    class BaseCalc:SomeBase
     {
         protected double value;
         public double Value
@@ -16,6 +23,15 @@ namespace Calculator
             {
                 return value;
             }
+        }
+        public BaseCalc()
+        {
+            Console.WriteLine("In BaseCalc");
+            value = 1;
+        }
+        public BaseCalc(double value)
+        {
+            this.value = value;
         }
         public void Plus(double operand)
         {

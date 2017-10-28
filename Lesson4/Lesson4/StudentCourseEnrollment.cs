@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson4
 {
-    class StudentCourseEnrollment
+    class StudentCourseEnrollment:IComparable
     {
         public Student student { get; set; }
         Course course;
@@ -16,6 +16,10 @@ namespace Lesson4
             this.student = student;
             this.course = course;
             points = 10;
+        }
+        public int CompareTo(object st)
+        {
+            return -points + ((StudentCourseEnrollment)st).points;
         }
     }
 }

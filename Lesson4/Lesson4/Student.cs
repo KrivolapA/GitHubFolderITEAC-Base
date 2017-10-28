@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lesson4
 {
+    class StudentPointComparator : IComparer<Student>
+    {
+        public int Compare(Student st1, Student st2)
+        {
+            return 0;
+        }
+    }
     class Student
     {
         int age;

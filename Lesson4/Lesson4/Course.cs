@@ -59,6 +59,10 @@ namespace Lesson4
             }
             return numProcessed;
         }
+        public void ArrangeRaitnig()
+        {
+            Array.Sort(studentRecords, 0, StudentsAtCourse);
+        }
         public int this[String FullName]
         {
             get

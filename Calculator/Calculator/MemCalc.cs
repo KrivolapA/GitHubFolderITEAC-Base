@@ -9,6 +9,10 @@ namespace Calculator
     class MemCalc:BaseCalc
     {
         protected double memValue;
+        public MemCalc()
+        {
+            Console.WriteLine("In MemCalc");
+        }
         public void SetMem()
         {
             memValue = value;
